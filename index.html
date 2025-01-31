@@ -3,41 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Botones</title>
+    <title>Página de Grupo Específico</title>
     <style>
         /* Estilos generales */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #161622;
+            background-color: #1a1a2e; /* Fondo oscuro */
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             color: #fff;
         }
 
         .container {
-            background-color: rgba(28, 28, 40, 0.95);
-            padding: 30px;
-            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.1); /* Contenedor semi-transparente */
+            padding: 25px;
+            border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
+            width: 90%;
             max-width: 400px;
-            width: 100%;
+            margin: 20px;
         }
 
         h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #ff6f61; /* Color del título */
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         p {
             color: #b4b4cc;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             line-height: 1.6;
         }
 
@@ -45,12 +47,12 @@
         .button {
             display: block;
             width: 100%;
-            padding: 16px 20px;
+            padding: 14px 20px;
             margin: 12px 0;
             font-size: 16px;
             color: #fff;
             text-decoration: none;
-            border-radius: 15px;
+            border-radius: 12px;
             text-align: center;
             font-weight: 500;
             position: relative;
@@ -67,14 +69,14 @@
             left: 0;
             width: 30px;
             height: 100%;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
             transform: skewX(-20deg);
-            animation: shine 3s infinite;
+            animation: shine 4s infinite;
         }
 
         @keyframes shine {
-            0% { transform: translateX(-100%) skewX(-20deg); }
-            100% { transform: translateX(100%) skewX(-20deg); }
+            0% { transform: translateX(-150%) skewX(-20deg); }
+            100% { transform: translateX(150%) skewX(-20deg); }
         }
 
         /* Efecto hover en los botones */
@@ -85,27 +87,43 @@
 
         /* Colores personalizados para cada botón */
         .button.primary {
-            background: linear-gradient(45deg, #1d93d2, #40a9ff);
+            background: linear-gradient(45deg, #ff6f61, #ff9a8b); /* Rojo coral */
         }
 
         .button.secondary {
-            background: linear-gradient(45deg, #404eed, #5865f2);
+            background: linear-gradient(45deg, #6b5b95, #8e7cc3); /* Morado suave */
         }
 
         .button.tertiary {
-            background: linear-gradient(45deg, #128c7e, #25d366);
+            background: linear-gradient(45deg, #88d8b0, #a7e8bd); /* Verde menta */
+        }
+
+        /* Estilos para móviles */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .button {
+                padding: 12px 18px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Información</h1>
-        <p>Bienvenido a esta página de ejemplo. Aquí encontrarás tres botones con diferentes acciones.</p>
+        <h1>Grupo Específico</h1>
+        <p>¡Bienvenido al grupo! Aquí encontrarás enlaces importantes para mantenerte conectado y actualizado.</p>
         
         <!-- Botones -->
-        <a href="https://ejemplo.com/aceptar" class="button primary">✅ Aceptar</a>
-        <a href="https://ejemplo.com/visitar" class="button secondary">🌐 Visitar Página</a>
-        <a href="https://ejemplo.com/descargar" class="button tertiary">📥 Descargar Aplicación</a>
+        <a href="https://ejemplo.com/unirse" class="button primary">✅ Unirse al Grupo</a>
+        <a href="https://ejemplo.com/reglas" class="button secondary">📜 Ver Reglas</a>
+        <a href="https://ejemplo.com/recursos" class="button tertiary">📚 Recursos Útiles</a>
     </div>
 </body>
 </html>
