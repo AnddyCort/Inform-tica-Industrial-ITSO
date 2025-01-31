@@ -3,67 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Grupo</title>
+    <title>Informática Industrial</title>
     <style>
-        /* Estilos generales */
+        @keyframes aurora {
+            0% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(10px, -10px) scale(1.1); }
+            50% { transform: translate(0, 0) scale(1); }
+            75% { transform: translate(-10px, 10px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        @keyframes button-shine-right {
+            0% { transform: translateX(-100%) skewX(-20deg); }
+            100% { transform: translateX(100%) skewX(-20deg); }
+        }
+
+        @keyframes button-shine-left {
+            0% { transform: translateX(100%) skewX(-20deg); }
+            100% { transform: translateX(-100%) skewX(-20deg); }
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 0;
+            min-height: 100vh;
+            background: #121212; /* Color de fondo más oscuro */
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .aurora {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .aurora div {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(100px);
+            animation: aurora 15s infinite;
+        }
+
+        .aurora div:nth-child(1) {
+            background: rgba(41, 128, 185, 0.2); /* Azul */
+            top: -300px;
+            left: -300px;
+        }
+
+        .aurora div:nth-child(2) {
+            background: rgba(155, 89, 182, 0.2); /* Morado */
+            bottom: -300px;
+            right: -300px;
+        }
+
+        .aurora div:nth-child(3) {
+            background: rgba(52, 152, 219, 0.2); /* Azul claro */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .page-wrapper {
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            color: #fff;
-            overflow: hidden; /* Evita el desbordamiento del fondo animado */
-            background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #1a1a2e);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .container {
-            background-color: rgba(28, 28, 40, 0.95); /* Contenedor semi-transparente */
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            width: 90%;
-            max-width: 400px;
-            margin: 20px;
+            padding: 40px 20px;
             position: relative;
             z-index: 1;
         }
 
+        .container {
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+            border: 4px solid rgba(41, 128, 185, 0.3);
+            box-shadow: 0 8px 20px rgba(41, 128, 185, 0.2);
+            transition: transform 0.3s ease;
+            object-fit: cover;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
         h1 {
-            font-size: 26px;
-            margin-bottom: 15px;
             color: #fff;
+            text-align: center;
+            font-size: 28px;
+            margin: 20px 0;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        p {
-            color: #b4b4cc;
-            margin-bottom: 25px;
+        .description {
+            color: #E2E8F0;
+            text-align: center;
+            margin-bottom: 30px;
             line-height: 1.6;
+            padding: 0 20px;
+            font-size: 1.1em;
         }
 
-        /* Estilos de los botones */
         .button {
             display: block;
-            width: 100%;
-            padding: 14px 20px;
-            margin: 12px 0;
-            font-size: 16px;
-            color: #fff;
+            margin: 15px auto;
+            padding: 16px 20px;
+            width: 80%;
+            max-width: 300px;
+            color: white;
             text-decoration: none;
-            border-radius: 12px;
+            border-radius: 15px;
             text-align: center;
             font-weight: 500;
             position: relative;
@@ -72,68 +142,91 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Animación de brillo en los botones */
         .button::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 30px;
+            width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.3);
             transform: skewX(-20deg);
-            animation: shine 4s infinite;
         }
 
-        @keyframes shine {
-            0% { transform: translateX(-150%) skewX(-20deg); }
-            100% { transform: translateX(150%) skewX(-20deg); }
-        }
-
-        /* Efecto hover en los botones */
         .button:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* Colores personalizados para cada botón */
-        .button.primary {
-            background: linear-gradient(45deg, #1d93d2, #40a9ff); /* Azul */
+        .button-whatsapp {
+            background: linear-gradient(45deg, #25D366, #128C7E);
         }
 
-        .button.secondary {
-            background: linear-gradient(45deg, #404eed, #5865f2); /* Morado */
+        .button-whatsapp::after {
+            animation: button-shine-right 3s infinite;
         }
 
-        .button.tertiary {
-            background: linear-gradient(45deg, #128c7e, #25d366); /* Verde */
+        .button-requisitos {
+            background: linear-gradient(45deg, #3498db, #2980b9);
         }
 
-        /* Estilos para móviles */
+        .button-requisitos::after {
+            animation: button-shine-left 3s infinite;
+        }
+
+        .button-reglas {
+            background: linear-gradient(45deg, #9b59b6, #8e44ad);
+        }
+
+        .button-reglas::after {
+            animation: button-shine-right 3s infinite;
+        }
+
         @media (max-width: 480px) {
+            .page-wrapper {
+                padding: 20px 10px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+
             h1 {
-                font-size: 22px;
-            }
-
-            p {
-                font-size: 14px;
-            }
-
-            .button {
-                padding: 12px 18px;
-                font-size: 14px;
+                font-size: 24px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Grupo Específico</h1>
-        <p>¡Bienvenido al grupo! Aquí encontrarás enlaces importantes para mantenerte conectado y actualizado.</p>
-<!-- Botones -->
-        <a href="https://ejemplo.com/unirse" class="button primary">✅ Unirse al Grupo</a>
-        <a href="https://ejemplo.com/reglas" class="button secondary">📜 Ver Reglas</a>
-        <a href="https://ejemplo.com/recursos" class="button tertiary">📚 Recursos Útiles</a>
+    <div class="aurora">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="container">
+            <img class="profile-img" src="/api/placeholder/150/150" alt="Informática Industrial"/>
+            
+            <h1>ɪɴꜰᴏʀᴍᴀᴛɪᴄᴀ ɪɴᴅᴜsᴛʀɪᴀʟ</h1>
+            
+            <p class="description">
+                ¡Bienvenidos futuros ingenieros! 🎓✨ 
+                Únete a nuestros grupos de Informática 2do semestre 💻
+                Lee las reglas 📜 y cumple los requisitos 📋
+                ¡Juntos crearemos algo increíble! 🚀 
+                #InformáticaIndustrial 🌟
+            </p>
+
+            <a href="#" class="button button-whatsapp">Nuevo Grupo de WhatsApp 💬</a>
+            <a href="#" class="button button-requisitos">Ver Requisitos 📋</a>
+            <a href="#" class="button button-reglas">Reglas del Grupo 📜</a>
+        </div>
     </div>
 </body>
 </html>
