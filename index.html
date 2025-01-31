@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Botones</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #161622;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            background-color: rgba(28, 28, 40, 0.95);
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            color: #b4b4cc;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* Estilos de los botones */
+        .button {
+            display: block;
+            width: 100%;
+            padding: 16px 20px;
+            margin: 12px 0;
+            font-size: 16px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animación de brillo en los botones */
+        .button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: skewX(-20deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) skewX(-20deg); }
+            100% { transform: translateX(100%) skewX(-20deg); }
+        }
+
+        /* Efecto hover en los botones */
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Colores personalizados para cada botón */
+        .button.primary {
+            background: linear-gradient(45deg, #1d93d2, #40a9ff);
+        }
+
+        .button.secondary {
+            background: linear-gradient(45deg, #404eed, #5865f2);
+        }
+
+        .button.tertiary {
+            background: linear-gradient(45deg, #128c7e, #25d366);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Información</h1>
+        <p>Bienvenido a esta página de ejemplo. Aquí encontrarás tres botones con diferentes acciones.</p>
+        
+        <!-- Botones -->
+        <a href="https://ejemplo.com/aceptar" class="button primary">✅ Aceptar</a>
+        <a href="https://ejemplo.com/visitar" class="button secondary">🌐 Visitar Página</a>
+        <a href="https://ejemplo.com/descargar" class="button tertiary">📥 Descargar Aplicación</a>
+    </div>
+</body>
+</html>
