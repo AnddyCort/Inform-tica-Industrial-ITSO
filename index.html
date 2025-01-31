@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Grupo Específico</title>
+    <title>Página de Grupo</title>
     <style>
         /* Estilos generales */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #1a1a2e; /* Fondo oscuro */
             margin: 0;
             padding: 0;
             display: flex;
@@ -16,11 +15,21 @@
             align-items: center;
             min-height: 100vh;
             color: #fff;
+            overflow: hidden; /* Evita el desbordamiento del fondo animado */
+            background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #1a1a2e);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
-            background-color: rgba(255, 255, 255, 0.1); /* Contenedor semi-transparente */
-            padding: 25px;
+            background-color: rgba(28, 28, 40, 0.95); /* Contenedor semi-transparente */
+            padding: 30px;
             border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -28,12 +37,14 @@
             width: 90%;
             max-width: 400px;
             margin: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         h1 {
             font-size: 26px;
             margin-bottom: 15px;
-            color: #ff6f61; /* Color del título */
+            color: #fff;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
@@ -87,15 +98,15 @@
 
         /* Colores personalizados para cada botón */
         .button.primary {
-            background: linear-gradient(45deg, #ff6f61, #ff9a8b); /* Rojo coral */
+            background: linear-gradient(45deg, #1d93d2, #40a9ff); /* Azul */
         }
 
         .button.secondary {
-            background: linear-gradient(45deg, #6b5b95, #8e7cc3); /* Morado suave */
+            background: linear-gradient(45deg, #404eed, #5865f2); /* Morado */
         }
 
         .button.tertiary {
-            background: linear-gradient(45deg, #88d8b0, #a7e8bd); /* Verde menta */
+            background: linear-gradient(45deg, #128c7e, #25d366); /* Verde */
         }
 
         /* Estilos para móviles */
@@ -119,8 +130,7 @@
     <div class="container">
         <h1>Grupo Específico</h1>
         <p>¡Bienvenido al grupo! Aquí encontrarás enlaces importantes para mantenerte conectado y actualizado.</p>
-        
-        <!-- Botones -->
+<!-- Botones -->
         <a href="https://ejemplo.com/unirse" class="button primary">✅ Unirse al Grupo</a>
         <a href="https://ejemplo.com/reglas" class="button secondary">📜 Ver Reglas</a>
         <a href="https://ejemplo.com/recursos" class="button tertiary">📚 Recursos Útiles</a>
